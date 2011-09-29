@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension point="com.change_vision.astah.ui.actionSets">
+      <actionSet
+            label="プラグインテンプレートアクション・セット"
+            visible="true"
+            id="archetype.it.basic.actionSet">
+         <menu
+               id="basic"
+               label="テンプレートグループ"
+               path="tool/basic">
+         </menu>
+         <action
+			   label="プラグインテンプレート(&amp;T)"
+               icon="icons/sample.gif"
+               class="it.pkg.TemplateAction"
+               tooltip="プラグインテンプレート"
+               menubarPath="tool/basic/"
+               id="basic">
+         </action>
+     </actionSet>
+   </extension>
+</plugin>
