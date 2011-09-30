@@ -5,19 +5,19 @@
 <plugin>
    <extension point="com.change_vision.astah.ui.actionSets">
       <actionSet
-            label="プラグインテンプレートアクション・セット"
+            label="%action_set_label"
             visible="true"
             id="${groupId}.${artifactId}.actionSet">
          <menu
                id="${artifactId}"
-               label="テンプレートグループ"
+               label="%menu_group"
                path="tool/${artifactId}">
          </menu>
          <action
-			   label="プラグインテンプレート(&amp;T)"
+			   label="%menu_label"
                icon="icons/sample.gif"
                class="${package}.TemplateAction"
-               tooltip="プラグインテンプレート"
+               tooltip="%menu_tooltip"
                menubarPath="tool/${artifactId}/"
                id="${artifactId}">
          </action>
