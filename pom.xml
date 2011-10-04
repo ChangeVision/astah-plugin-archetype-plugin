@@ -4,23 +4,23 @@
 
   <groupId>com.change_vision.astah</groupId>
   <artifactId>plugin-archetype</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.8</version>
   <packaging>maven-archetype</packaging>
 
   <name>template-archetype</name>
 
-<distributionManagement>
-  <repository>
-   <id>dev.change-vision.com-deploy</id>
-   <name>dev.change-vision.com Maven Repository</name>
-   <url>scpexe://dev.change-vision.com/opt/repository/maven2</url>
-  </repository>
-  <snapshotRepository>
-   <id>dev.change-vision.com-snapshot-deploy</id>
-   <name>dev.change-vision.com Maven Repository</name>
-   <url>scpexe://dev.change-vision.com/opt/repository/maven2-snapshot</url>
-  </snapshotRepository>
- </distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>local</id>
+			<name>Local Repository</name>
+			<url>file://C:/astah-plugin-SDK-1.0b/repository</url>
+		</repository>
+		<snapshotRepository>
+			<id>local-snapshot</id>
+			<name>Local Snapshot Repository</name>
+			<url>file://C:/astah-plugin-SDK-1.0b/repository</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 
   <build>
