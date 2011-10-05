@@ -17,7 +17,7 @@ public class TemplateAction implements IPluginActionDelegate {
 	public Object run(IWindow window) throws UnExpectedException {
 	    try {
 	        ProjectAccessor projectAccessor = ProjectAccessorFactory.getProjectAccessor();
-	        projectAccessor.getCurrentProject();
+	        projectAccessor.getProject();
 	        JOptionPane.showMessageDialog(window.getParent(),"Hello");
 	    } catch (ProjectNotFoundException e) {
 	        String message = "Project is not opened.Please open the project or create new project.";
