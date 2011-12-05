@@ -4,7 +4,7 @@
 
   <groupId>com.change_vision.astah</groupId>
   <artifactId>plugin-archetype</artifactId>
-  <version>0.8.3</version>
+  <version>0.8.4-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>template-archetype</name>
@@ -43,4 +43,8 @@
   </build>
 
   <description>Create astah* Plug-in project</description>
+  <scm>
+  	<developerConnection>scm:svn:svn+ssh://dev.change-vision.com/home/svnreps/jude/trunk/plugins/archetype</developerConnection>
+  	<url>svn+ssh://dev.change-vision.com/home/svnreps/jude/trunk/plugins/archetype</url>
+  </scm>
 </project>
