@@ -142,6 +142,23 @@
     </testResources>
     <plugins>
       <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/classes</outputDirectory>
+              <excludeGroupIds>com.change_vision.astah</excludeGroupIds>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
@@ -164,29 +181,18 @@
         <version>0.9.1</version>
       </plugin>
       <plugin>
-        <groupId>org.ops4j</groupId>
-        <artifactId>maven-pax-plugin</artifactId>
-        <version>1.5</version>
-        <!--
-          | enable improved OSGi compilation support for the bundle
-          life-cycle. | to switch back to the standard bundle life-cycle,
-          move this setting | down to the maven-bundle-plugin section
-        -->
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>1.4.3</version>
-        <executions>
-          <execution>
-            <id>build-bundle</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>bundle</goal>
-            </goals>
-          </execution>
-        </executions>
+  <artifactId>maven-bundle-plugin</artifactId>
+  <version>2.3.6</version>
+  <executions>
+    <execution>
+      <id>build-manifest</id>
+      <phase>process-classes</phase>
+      <goals>
+        <goal>manifest</goal>
+      </goals>
+    </execution>
+  </executions>
         <!--
           | the following instructions build a simple set of public/private
           classes into an OSGi bundle
@@ -201,18 +207,52 @@
             -->
             <Export-Package>!${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
             <Private-Package>${bundle.namespace}.internal.*</Private-Package>
-            <Bundle-Activator>${bundle.namespace}.internal.Activator</Bundle-Activator>
-            <Astah-Version>${astah.version}</Astah-Version>
-            <Astah-Edition>${astah.edition}</Astah-Edition>
-            <!--
-              | each module can override these defaults in their osgi.bnd file
-            -->
-            <_include>-osgi.bnd</_include>
-            <Embed-Dependency>*;scope=compile|runtime;type=!pom</Embed-Dependency>
-          </instructions>
-        </configuration>
+      <Bundle-Activator>${bundle.namespace}.internal.Activator</Bundle-Activator>
+      <Astah-Version>${astah.version}</Astah-Version>
+      <Astah-Edition>${astah.edition}</Astah-Edition>
+      <!--
+        | each module can override these defaults in their osgi.bnd file
+      -->
+      <_include>-osgi.bnd</_include>
+    <Embed-Dependency>*;scope=compile|runtime;type=!pom</Embed-Dependency>
+    </instructions>
+  </configuration>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      org.apache.maven.plugins
+                    </groupId>
+                    <artifactId>
+                      maven-dependency-plugin
+                    </artifactId>
+                    <versionRange>
+                      [2.4,)
+                    </versionRange>
+                    <goals>
+                      <goal>copy-dependencies</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute/>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
   <dependencies>
     <dependency>
