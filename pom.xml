@@ -10,18 +10,21 @@
   <name>template-archetype</name>
 
   <distributionManagement>
+    <site>
+      <id>dev.change-vision.com-deploy</id>
+      <url>scp://dev.change-vision.com/opt/maven-site/archtype/${buildLabel}</url>
+    </site>
     <repository>
-      <id>local</id>
-      <name>Local Repository</name>
-      <url>file://${java.io.tmpdir}/astah-plugin-SDK/repository</url>
+      <id>dev.change-vision.com-deploy</id>
+      <name>dev.change-vision.com-deploy Maven Repository</name>
+      <url>scp://dev.change-vision.com/opt/repository/maven2</url>
     </repository>
     <snapshotRepository>
-      <id>local-snapshot</id>
-      <name>Local Snapshot Repository</name>
-      <url>file://${java.io.tmpdir}/astah-plugin-SDK/repository</url>
+      <id>dev.change-vision.com-snapshot-deploy</id>
+      <name>dev.change-vision.com-deploy SNAPSHOT Maven Repository</name>
+      <url>scp://dev.change-vision.com/opt/repository/maven2-snapshot</url>
     </snapshotRepository>
   </distributionManagement>
-
 
   <build>
     <extensions>
@@ -29,6 +32,11 @@
         <groupId>org.apache.maven.archetype</groupId>
         <artifactId>archetype-packaging</artifactId>
         <version>2.1</version>
+      </extension>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>2.2</version>
       </extension>
     </extensions>
 
