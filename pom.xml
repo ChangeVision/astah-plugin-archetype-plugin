@@ -4,25 +4,21 @@
 
   <groupId>com.change_vision.astah</groupId>
   <artifactId>plugin-archetype</artifactId>
-  <version>0.8.7</version>
+  <version>0.8.8-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
   <name>template-archetype</name>
 
   <distributionManagement>
-    <site>
-      <id>dev.change-vision.com-deploy</id>
-      <url>scp://dev.change-vision.com/opt/maven-site/archtype/${buildLabel}</url>
-    </site>
     <repository>
-      <id>dev.change-vision.com-deploy</id>
-      <name>dev.change-vision.com-deploy Maven Repository</name>
-      <url>scp://dev.change-vision.com/opt/repository/maven2</url>
+      <id>local</id>
+      <name>default</name>
+      <url>file:///${java.io.tmpdir}/astah-plugin-SDK/repository</url>
     </repository>
     <snapshotRepository>
-      <id>dev.change-vision.com-snapshot-deploy</id>
-      <name>dev.change-vision.com-deploy SNAPSHOT Maven Repository</name>
-      <url>scp://dev.change-vision.com/opt/repository/maven2-snapshot</url>
+      <id>local</id>
+      <name>default</name>
+      <url>file:///${java.io.tmpdir}/astah-plugin-SDK/repository</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -52,7 +48,7 @@
 
   <description>Create astah* Plug-in project</description>
   <scm>
-    <developerConnection>scm:svn:svn+ssh://dev.change-vision.com/home/svnreps/jude/trunk/plugins/archetype</developerConnection>
-    <url>svn+ssh://dev.change-vision.com/home/svnreps/jude/trunk/plugins/archetype</url>
+    <developerConnection>scm:git:git@github.com:ChangeVision/astah-plugin-archetype-plugin.git</developerConnection>
+    <url>scm:git:git@github.com:ChangeVision/astah-plugin-archetype-plugin.git</url>
   </scm>
 </project>
