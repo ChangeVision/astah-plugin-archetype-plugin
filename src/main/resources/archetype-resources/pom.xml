@@ -198,8 +198,8 @@
         <!-- | the following instructions build a simple set of public/private
           classes into an OSGi bundle -->
         <configuration>
+          <unpackBundle>true</unpackBundle>
           <instructions>
-            <unpackBundle>true</unpackBundle>
             <Bundle-SymbolicName>${bundle.symbolicName}; singleton:=true</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
             <!-- | assume public classes are in the top package, and private classes
@@ -211,7 +211,8 @@
             <Astah-Edition>${astah.edition}</Astah-Edition>
             <!-- | each module can override these defaults in their osgi.bnd file -->
             <_include>-osgi.bnd</_include>
-            <Embed-Dependency>*;scope=compile|runtime;type=!pom</Embed-Dependency>
+            <Embed-Dependency>*;scope=compile|runtime;type=!pom;optional=false</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
           </instructions>
         </configuration>
       </plugin>
