@@ -4,12 +4,16 @@
 
   <groupId>com.change_vision.astah</groupId>
   <artifactId>plugin-archetype</artifactId>
-  <version>0.8.8-SNAPSHOT</version>
+  <version>0.8.8</version>
   <packaging>maven-archetype</packaging>
 
   <name>template-archetype</name>
 
   <distributionManagement>
+    <site>
+      <id>dev.change-vision.com-deploy</id>
+      <url>scp://dev.change-vision.com/opt/maven-site/archtype/${buildLabel}</url>
+    </site>
     <repository>
       <id>local</id>
       <name>default</name>
