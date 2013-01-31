@@ -5,7 +5,7 @@
     <bundle.symbolicName>${groupId}.${artifactId}</bundle.symbolicName>
     <bundle.namespace>${package}</bundle.namespace>
     <plugin.install>true</plugin.install>
-    <astah.version>6.6</astah.version>
+    <astah.version>6.7</astah.version>
     <astah.edition>all</astah.edition>
   </properties>
   <modelVersion>4.0.0</modelVersion>
